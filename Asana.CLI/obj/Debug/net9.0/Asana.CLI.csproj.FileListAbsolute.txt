@@ -1,0 +1,14 @@
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.AssemblyInfoInputs.cache
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.AssemblyInfo.cs
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.csproj.CoreCompileInputs.cache
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/bin/Debug/net9.0/Asana.CLI
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/bin/Debug/net9.0/Asana.CLI.deps.json
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/bin/Debug/net9.0/Asana.CLI.runtimeconfig.json
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/bin/Debug/net9.0/Asana.CLI.dll
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/bin/Debug/net9.0/Asana.CLI.pdb
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.dll
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/refint/Asana.CLI.dll
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.pdb
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.genruntimeconfig.cache
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/ref/Asana.CLI.dll
