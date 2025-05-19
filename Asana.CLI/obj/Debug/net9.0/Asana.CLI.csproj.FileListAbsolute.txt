@@ -12,3 +12,8 @@
 /Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.pdb
 /Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.genruntimeconfig.cache
 /Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/ref/Asana.CLI.dll
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/bin/Debug/net9.0/Asana.Library.dll
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/bin/Debug/net9.0/Asana.Library.pdb
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.csproj.AssemblyReference.cache
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.sourcelink.json
+/Users/rileygalpin/programming/school/COP 4870/Asana.CLI/obj/Debug/net9.0/Asana.CLI.csproj.Up2Date

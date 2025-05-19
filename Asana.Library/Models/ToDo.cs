@@ -9,15 +9,15 @@ public class ToDo
     public string? Name { get; set;}
     
 
-    public string? description { get; set; }
-    public bool? isDone { get; set; }
-    public int? priotity { get; set; }
+    public string? Description { get; set; }
+    public bool? IsCompleted { get; set; }
+    public int? Priotity { get; set; }
 
-    public ToDo()
+    public override string ToString()
     {
-        
+        return $"{Name} - {Description}";
     }
 
- 
+
    
 }
