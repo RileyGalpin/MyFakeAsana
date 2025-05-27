@@ -14,7 +14,7 @@ public class ToDo
 
     public string? Description { get; set; }
     public bool? IsCompleted { get; set; }
-    public int? Priotity { get; set; }
+    public int? Priortity { get; set; }
 
     public override string ToString()
     {
