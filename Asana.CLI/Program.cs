@@ -15,9 +15,17 @@ namespace Asana
             {
                 Console.WriteLine("Choose a menu option:");
                 Console.WriteLine("1. Create a ToDo");
-                Console.WriteLine("2. Exit");
+                Console.WriteLine("2. Delete a ToDo");
+                Console.WriteLine("3. Update a ToDo");
+                Console.WriteLine("4. List all ToDos");
+                Console.WriteLine("5. Create a project");
+                Console.WriteLine("6. Delete a project");
+                Console.WriteLine("7. Update a project");
+                Console.WriteLine("8. List all projects");
+                Console.WriteLine("9. List all ToDos in a Given Project");
+                Console.WriteLine("10. Exit");
 
-                var choice = Console.ReadLine() ?? "2";
+                var choice = Console.ReadLine() ?? "10";
 
                 if (int.TryParse(choice, out choiceInt))
                 {
@@ -29,10 +37,14 @@ namespace Asana
                             toDo.Name = Console.ReadLine();
                             Console.WriteLine("Description: ");
                             toDo.Description = Console.ReadLine();
+                            toDo.IsCompleted = false;
 
                             toDos.Add(toDo);
                             break;
                         case 2:
+
+                            break;
+                        case 10:
                             break;
                         default:
                             Console.WriteLine("ERROR: Unknown menu selection");
