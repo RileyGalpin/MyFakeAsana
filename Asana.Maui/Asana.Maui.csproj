@@ -24,7 +24,7 @@
 		<ApplicationTitle>Asana.Maui</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.asana.maui</ApplicationId>
+		<ApplicationId>com.rileygalpin.asana.maui</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -67,5 +67,5 @@
 	<ItemGroup>
 	  <ProjectReference Include="../Asana.Library/Asana.Library.csproj" />
 	</ItemGroup>
-
+	
 </Project>

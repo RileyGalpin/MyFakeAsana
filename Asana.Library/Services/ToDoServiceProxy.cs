@@ -1,5 +1,3 @@
-//using System;
-
 using Asana.Library.Models;
 using System;
 using System.Collections.Generic;
@@ -11,11 +9,31 @@ namespace Asana.Library.Services
 {
     public class ToDoServiceProxy
     {
-        public List<ToDo> toDos;
+        private List<ToDo> _toDoList;
+        public List<ToDo> ToDos { 
+            get
+            {
+                return _toDoList.Take(100).ToList();
+            }
+
+            private set {
+                if (value != _toDoList)
+                {
+                    _toDoList = value;
+                }
+            }
+        }
 
         private ToDoServiceProxy()
         {
-            toDos = new List<ToDo>();
+            ToDos = new List<ToDo>
+            {
+                new ToDo{Id = 1, Name = "Task 1", Description = "My Task 1", IsCompleted=true},
+                new ToDo{Id = 2, Name = "Task 2", Description = "My Task 2", IsCompleted=false },
+                new ToDo{Id = 3, Name = "Task 3", Description = "My Task 3", IsCompleted=true },
+                new ToDo{Id = 4, Name = "Task 4", Description = "My Task 4", IsCompleted=false },
+                new ToDo{Id = 5, Name = "Task 5", Description = "My Task 5", IsCompleted=true }
+            };
         }
 
         private static ToDoServiceProxy? instance;
@@ -24,9 +42,9 @@ namespace Asana.Library.Services
         {
             get
             {
-                if(toDos.Any())
+                if(ToDos.Any())
                 {
-                    return toDos.Select(t => t.Id).Max() + 1;
+                    return ToDos.Select(t => t.Id).Max() + 1;
                 }
                 return 1;
             }
@@ -49,7 +67,7 @@ namespace Asana.Library.Services
             if(toDo != null && toDo.Id == 0)
             {
                 toDo.Id = nextKey;
-                toDos.Add(toDo);
+                ToDos.Add(toDo);
             }
         }
 
@@ -57,11 +75,11 @@ namespace Asana.Library.Services
         {
             if (isShowCompleted)
             {
-                toDos.ForEach(Console.WriteLine);
+                ToDos.ForEach(Console.WriteLine);
             }
             else
             {
-                toDos.Where(t => (t != null) && !(t?.IsCompleted ?? false))
+                ToDos.Where(t => (t != null) && !(t?.IsCompleted ?? false))
                                 .ToList()
                                 .ForEach(Console.WriteLine);
             }
@@ -69,7 +87,7 @@ namespace Asana.Library.Services
 
         public ToDo? GetById(int id)
         {
-            return toDos.FirstOrDefault(t => t.Id == id);
+            return ToDos.FirstOrDefault(t => t.Id == id);
         }
 
         public void DeleteToDo(ToDo? toDo)
@@ -78,7 +96,7 @@ namespace Asana.Library.Services
             {
                 return;
             }
-            toDos.Remove(toDo);
+            ToDos.Remove(toDo);
         }
 
     }
