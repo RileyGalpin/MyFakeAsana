@@ -1,4 +1,5 @@
-using Asana.Library.Models;
+
+﻿using Asana.Library.Models;
 using Asana.Library.Services;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-
-//17 branch
-namespace Asana.Maui.ViewModel
+namespace Asana.Maui.ViewModels
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
@@ -50,6 +49,11 @@ namespace Asana.Maui.ViewModel
                     NotifyPropertyChanged(nameof(ToDos));
                 }
             }
+        }
+
+        public void RefreshPage()
+        {
+            NotifyPropertyChanged(nameof(ToDos));
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
