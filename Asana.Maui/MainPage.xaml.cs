@@ -1,4 +1,5 @@
-﻿using Asana.Maui.ViewModel;
+﻿
+﻿using Asana.Maui.ViewModels;
 
 namespace Asana.Maui
 {
@@ -12,6 +13,20 @@ namespace Asana.Maui
             BindingContext = new MainPageViewModel();
         }
 
+        private void AddNewClicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync("//ToDoDetails");
+        }
+
+        private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+        {
+            (BindingContext as MainPageViewModel).RefreshPage();
+        }
+
+        private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)
+        {
+
+        }
     }
 
 }

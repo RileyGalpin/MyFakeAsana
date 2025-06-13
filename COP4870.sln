@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asana.CLI", "Asana.CLI\Asan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asana.Library", "Asana.Library\Asana.Library.csproj", "{E5009514-A81B-48A8-B4EF-AF538535836D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asana", "Asana", "{0007DA78-75E5-2596-F9F4-7F60B3EBBD42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

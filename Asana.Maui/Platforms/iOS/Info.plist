@@ -30,4 +30,11 @@
 	<string>Assets.xcassets/appicon.appiconset</string>
 	<ApplicationId>com.rileygalpin.asana</ApplicationId>
 </dict>
+
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>com.rileygalpin.asana</string>
+    <!-- Other Info.plist entries... -->
+</dict>
+
 </plist>
