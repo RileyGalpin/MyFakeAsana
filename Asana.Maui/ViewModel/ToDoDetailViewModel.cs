@@ -6,13 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Asana.Maui.ViewModels
+namespace Asana.Maui.ViewModel
 {
     public class ToDoDetailViewModel
     {
         public ToDoDetailViewModel() {
             Model = new ToDo();
         }
+
+        public ToDoDetailViewModel(int id)
+        {
+            Model = ToDoServiceProxy.Current.GetById(id) ?? new ToDo();
+        }
+
         public ToDo? Model { get ; set; }
 
         public List<int> Priorities

@@ -1,9 +1,9 @@
-
 using Asana.Library.Models;
-using Asana.Maui.ViewModels;
+using Asana.Maui.ViewModel;
 
 namespace Asana.Maui.Views;
 
+[QueryProperty(nameof(ToDoId), "toDoId")]
 public partial class ToDoDetailView : ContentPage
 {
 	public ToDoDetailView()
@@ -11,7 +11,7 @@ public partial class ToDoDetailView : ContentPage
 		InitializeComponent();
         
 	}
-
+    public int ToDoId { get; set; }
     private void CancelClicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("//MainPage");
@@ -30,6 +30,6 @@ public partial class ToDoDetailView : ContentPage
 
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
-        BindingContext = new ToDoDetailViewModel();
+        BindingContext = new ToDoDetailViewModel(ToDoId);
     }
 }

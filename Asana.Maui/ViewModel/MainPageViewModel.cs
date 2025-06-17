@@ -1,5 +1,4 @@
-
-﻿using Asana.Library.Models;
+using Asana.Library.Models;
 using Asana.Library.Services;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Asana.Maui.ViewModels
+namespace Asana.Maui.ViewModel
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
@@ -21,6 +20,7 @@ namespace Asana.Maui.ViewModels
             _toDoSvc = ToDoServiceProxy.Current;
         }
 
+        public ToDo SelectedToDo { get; set; }
         public ObservableCollection<ToDo> ToDos
         {
             get
@@ -33,6 +33,8 @@ namespace Asana.Maui.ViewModels
                 return new ObservableCollection<ToDo>(toDos);
             }
         }
+
+        public int SelectedToDoId => SelectedToDo.Id;
 
         private bool isShowCompleted;
         public bool IsShowCompleted { 
@@ -49,6 +51,17 @@ namespace Asana.Maui.ViewModels
                     NotifyPropertyChanged(nameof(ToDos));
                 }
             }
+        }
+
+        public void DeleteToDo()
+        {
+            if (SelectedToDo == null)
+            {
+                return;
+            }
+
+            ToDoServiceProxy.Current.DeleteToDo(SelectedToDo);
+            NotifyPropertyChanged(nameof(ToDos));
         }
 
         public void RefreshPage()
