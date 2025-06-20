@@ -35,6 +35,7 @@ namespace Asana.Library.Services
         {
             Projects = new List<Project>
             {
+                new Project{Id = -1, Name = "All ToDos", ToDos = new List<ToDo>()},
                 new Project{Id = 1, Name = "Project 1", Description = "My Project 1", ToDos = new List<ToDo>()},
                 new Project{Id = 2, Name = "Project 2", Description = "My Project 2", ToDos = new List<ToDo>()},
                 new Project{Id = 3, Name = "Project 3", Description = "My Project 3", ToDos = new List<ToDo>()}

@@ -36,7 +36,19 @@ namespace Asana.Maui.ViewModel
                 var selectedProject = _projectSvc.GetById(SelectedProjectId);
                 if (selectedProject != null && selectedProject.ToDos != null)
                 {
-                    var toDos = selectedProject.ToDos.Select(t => new ToDoDetailViewModel(t)); //error here
+                    var toDos = selectedProject.ToDos.Select(t => new ToDoDetailViewModel(t));
+                    if (selectedProject.Id == -1)
+                    {
+                        foreach (var project in _projectSvc.Projects)
+                        {
+                            if (project.ToDos != null)
+                            {
+                                toDos = toDos.Concat(project.ToDos.Select(t => new ToDoDetailViewModel(t)));
+                            }
+                        }
+                            toDos = toDos.Concat(_toDoSvc.ToDos .Select(t => new ToDoDetailViewModel(t)));
+                        //loop through each project id and display all todos in the projects (handle completed vs not completed todos)
+                    }
                     if (!IsShowCompleted)
                     {
                         toDos = toDos.Where(t => !t?.Model?.IsCompleted ?? false);
@@ -128,26 +140,6 @@ namespace Asana.Maui.ViewModel
         }
 
 
-        // public ObservableCollection<ToDo> Projects
-        // {
-        //     get
-        //     {
-        //                 Console.WriteLine("Selected Project: ");
-        //                 Console.WriteLine(SelectedProject);
-        //         if (SelectedProject != null && SelectedProjectId >= 0)
-        //                 {
-        //                     var selectedProject = _projectSvc.GetById(SelectedProjectId);
-        //                     if (selectedProject != null)
-        //                     {
-        //                         var toDos = selectedProject.ToDos.ToList();
-        //                         return new ObservableCollection<ToDo>(toDos);
-
-        //                     }
-        //                 }
-        //         return new ObservableCollection<ToDo>();
-        //     }
-        // }
-
 private ObservableCollection<Project> _projects;
 public ObservableCollection<Project> Projects
 {
@@ -169,35 +161,12 @@ public ObservableCollection<Project> Projects
 
 
 
-        // public double CompletedPercent()
-
     public Project SelectedProject { get; set; }
 
-        // public ToDoDetailViewModel SelectedToDoDetailViewModel
-        // {
-        //     get => SelectedToDo;
-        //     set
-        //     {
-        //         if (SelectedToDo != value)
-        //         {
-        //             SelectedToDo = value;
-        //             NotifyPropertyChanged(nameof(SelectedToDo));
-        //             NotifyPropertyChanged(nameof(SelectedToDoId));
-        //         }
-        //     }
-        // }
-    public int SelectedProjectId => SelectedProject?.Id ?? -1;
 
-        // public void DeleteProject()
-        // {
-        //     if (SelectedProject == null)
-        //     {
-        //         return;
-        //     }
+    public int SelectedProjectId => SelectedProject?.Id ?? -999;
 
-        //     ProjectServiceProxy.Current.DeleteProject(SelectedProject);
-        //     NotifyPropertyChanged(nameof(Projects));
-        // }
+ 
 
         public void RefreshProjectPage()
         {

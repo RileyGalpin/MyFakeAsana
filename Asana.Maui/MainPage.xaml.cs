@@ -33,7 +33,7 @@ namespace Asana.Maui
             Shell.Current.GoToAsync($"//ProjectDetails?ProjectId={selectedId}");
         }
 
-        private void DeleteClicked(object sender, EventArgs e)
+       private void DeleteClicked(object sender, EventArgs e)
         {
             (BindingContext as MainPageViewModel)?.DeleteToDo();
         }
