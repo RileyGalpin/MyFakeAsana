@@ -16,6 +16,11 @@ namespace Asana.Maui
         {
             Shell.Current.GoToAsync("//ToDoDetails");
         }
+         private void AddNewProjClicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync("//ProjectDetails");
+        }
+
         private void EditClicked(object sender, EventArgs e)
         {
             var selectedId = (BindingContext as MainPageViewModel)?.SelectedToDoId ?? 0;
@@ -29,12 +34,18 @@ namespace Asana.Maui
 
         private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
         {
-            (BindingContext as MainPageViewModel)?.RefreshPage();
+            var viewModel = BindingContext as MainPageViewModel;
+            viewModel?.RefreshProjectPage();
+           
         }
 
         private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)
         {
 
+        }
+       private void InLineDeleteClicked(object sender, EventArgs e)
+        {
+            (BindingContext as MainPageViewModel)?.RefreshPage();
         }
 
 
