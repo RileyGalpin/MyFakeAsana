@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Asana.Maui.Views.ToDoDetailView"
-             Title="ToDoDetailView"
+             x:Class="Asana.Maui.Views.ProjectDetailView"
+             Title="ProjectDetailView"
              NavigatedFrom="ContentPage_NavigatedFrom"
              NavigatedTo="ContentPage_NavigatedTo">
     <VerticalStackLayout>
@@ -25,11 +25,6 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
-            <CheckBox IsChecked="{Binding Model.IsCompleted}" Grid.Column="0"/>
-            <Label Text="Priority:" Grid.Column="1"/>
-            <!--<Entry Text="{Binding PriorityDisplay}" Grid.Column="2"/>-->
-            <Picker ItemsSource="{Binding Priorities}"
-                    SelectedItem="{Binding SelectedPriority}" Grid.Column="2"/>      
         </Grid>
          <Grid>
             <Grid.ColumnDefinitions>
@@ -37,14 +32,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-
-            <Label Text="Due Date:" Grid.Column="0"/>
-            <DatePicker Date="{Binding Model.DueDate}" Grid.Column="1" /> 
-            <Label Text="Project:" Grid.Column="2"/>
-       
-            <Picker ItemsSource="{Binding Projects}"
-                    SelectedItem="{Binding SelectedProject}" Grid.Column="3"/>        
+            </Grid.ColumnDefinitions> 
         </Grid>
 
         <Grid>
