@@ -77,7 +77,7 @@ public ObservableCollection<Project> Projects
         // public double CompletedPercent()
 
         public Project SelectedProject { get; set; }
-        public int SelectedProjectId => SelectedProject?.Id ?? -1;
+        public int SelectedProjectId => SelectedProject?.Id ?? -999;
 
 
     }
