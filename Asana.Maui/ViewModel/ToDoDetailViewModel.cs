@@ -39,8 +39,12 @@ namespace Asana.Maui.ViewModel
 
         public void DoDelete()
         {
-            if (SelectedProjectId != -1) {
-                SelectedProject.ToDos.Remove(Model);
+            foreach (var project in _projectSvc.Projects)
+            {
+                if (project.ToDos != null && project.ToDos.Contains(Model))
+                {
+                    project.ToDos.Remove(Model);
+                }
             }
             ToDoServiceProxy.Current.DeleteToDo(Model);
 
