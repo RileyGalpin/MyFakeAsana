@@ -94,12 +94,30 @@ namespace Asana.Maui.ViewModel
             ToDoServiceProxy.Current.DeleteToDo(SelectedToDo.Model);
             NotifyPropertyChanged(nameof(ToDos));
         }
+        
+        public void DeleteProject()
+        {
+            if (SelectedProject == null)
+            {
+                return;
+            }
+            if (SelectedProject != null && SelectedProject.ToDos != null)
+                {
+                    foreach (var todo in SelectedProject.ToDos)
+                    {
+                        ToDoServiceProxy.Current.DeleteToDo(todo);
+                    }         
+                }
+          
+            ProjectServiceProxy.Current.DeleteProject(SelectedProject);
+            NotifyPropertyChanged(nameof(Projects));
+        }
 
         public void RefreshPage()
         {
             NotifyPropertyChanged(nameof(ToDos));
             //NotifyPropertyChanged(nameof(Projects));
-           // NotifyPropertyChanged(nameof(SelectedProject));
+            // NotifyPropertyChanged(nameof(SelectedProject));
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -170,16 +188,16 @@ public ObservableCollection<Project> Projects
         // }
     public int SelectedProjectId => SelectedProject?.Id ?? -1;
 
-        public void DeleteProject()
-        {
-            if (SelectedProject == null)
-            {
-                return;
-            }
+        // public void DeleteProject()
+        // {
+        //     if (SelectedProject == null)
+        //     {
+        //         return;
+        //     }
 
-            ProjectServiceProxy.Current.DeleteProject(SelectedProject);
-            NotifyPropertyChanged(nameof(Projects));
-        }
+        //     ProjectServiceProxy.Current.DeleteProject(SelectedProject);
+        //     NotifyPropertyChanged(nameof(Projects));
+        // }
 
         public void RefreshProjectPage()
         {

@@ -31,12 +31,17 @@ namespace Asana.Maui
         {
             (BindingContext as MainPageViewModel)?.DeleteToDo();
         }
+        
+        private void DeleteProjClicked(object sender, EventArgs e)
+        {
+            (BindingContext as MainPageViewModel)?.DeleteProject();
+        }
 
         private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
         {
             var viewModel = BindingContext as MainPageViewModel;
             viewModel?.RefreshProjectPage();
-           
+
         }
 
         private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)
