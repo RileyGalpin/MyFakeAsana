@@ -27,6 +27,12 @@ namespace Asana.Maui
             Shell.Current.GoToAsync($"//ToDoDetails?toDoId={selectedId}");
         }
 
+        private void EditProjClicked(object sender, EventArgs e)
+        {
+            var selectedId = (BindingContext as MainPageViewModel)?.SelectedProjectId ?? 0;
+            Shell.Current.GoToAsync($"//ProjectDetails?ProjectId={selectedId}");
+        }
+
         private void DeleteClicked(object sender, EventArgs e)
         {
             (BindingContext as MainPageViewModel)?.DeleteToDo();
