@@ -17,8 +17,6 @@ namespace Asana.Library.Services
        
 
         public List<Project> Projects
-
-
         {
             get
             {
