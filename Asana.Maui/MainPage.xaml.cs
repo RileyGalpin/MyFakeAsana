@@ -29,7 +29,12 @@ namespace Asana.Maui
 
         private void EditProjClicked(object sender, EventArgs e)
         {
+            
             var selectedId = (BindingContext as MainPageViewModel)?.SelectedProjectId ?? 0;
+            if (selectedId == -1)
+            {
+                return; 
+            }
             Shell.Current.GoToAsync($"//ProjectDetails?ProjectId={selectedId}");
         }
 

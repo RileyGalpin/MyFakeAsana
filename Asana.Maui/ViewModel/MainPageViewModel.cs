@@ -109,7 +109,7 @@ namespace Asana.Maui.ViewModel
         
         public void DeleteProject()
         {
-            if (SelectedProject == null)
+            if (SelectedProject == null || SelectedProject.Id == -1)
             {
                 return;
             }

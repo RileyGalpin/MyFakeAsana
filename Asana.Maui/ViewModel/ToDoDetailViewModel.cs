@@ -122,6 +122,14 @@ public ObservableCollection<Project> Projects
             var projects = _projectSvc.Projects ?? new List<Project>();
             _projects = new ObservableCollection<Project>(projects);
         }
+                foreach (var project in _projects)
+                {
+                    if (project.Id == -1)
+                    {
+                        _projects.Remove(project);
+                        break; 
+                    }
+        }
         return _projects;
     }
     set
