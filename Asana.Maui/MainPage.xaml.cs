@@ -1,4 +1,6 @@
-﻿using Asana.Maui.ViewModel;
+﻿
+﻿using Asana.Library.Models;
+using Asana.Maui.ViewModels;
 
 namespace Asana.Maui
 {
@@ -16,55 +18,41 @@ namespace Asana.Maui
         {
             Shell.Current.GoToAsync("//ToDoDetails");
         }
-         private void AddNewProjClicked(object sender, EventArgs e)
-        {
-            Shell.Current.GoToAsync("//ProjectDetails");
-        }
-
         private void EditClicked(object sender, EventArgs e)
         {
             var selectedId = (BindingContext as MainPageViewModel)?.SelectedToDoId ?? 0;
             Shell.Current.GoToAsync($"//ToDoDetails?toDoId={selectedId}");
         }
 
-        private void EditProjClicked(object sender, EventArgs e)
-        {
-            
-            var selectedId = (BindingContext as MainPageViewModel)?.SelectedProjectId ?? 0;
-            if (selectedId == -1)
-            {
-                return; 
-            }
-            Shell.Current.GoToAsync($"//ProjectDetails?ProjectId={selectedId}");
-        }
-
-       private void DeleteClicked(object sender, EventArgs e)
+        private void DeleteClicked(object sender, EventArgs e)
         {
             (BindingContext as MainPageViewModel)?.DeleteToDo();
-        }
-        
-        private void DeleteProjClicked(object sender, EventArgs e)
-        {
-            (BindingContext as MainPageViewModel)?.DeleteProject();
         }
 
         private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
         {
-            var viewModel = BindingContext as MainPageViewModel;
-            viewModel?.RefreshProjectPage();
-
+            (BindingContext as MainPageViewModel)?.RefreshPage();
         }
 
         private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)
         {
 
         }
-       private void InLineDeleteClicked(object sender, EventArgs e)
+
+        private void InLineDeleteClicked(object sender, EventArgs e)
         {
             (BindingContext as MainPageViewModel)?.RefreshPage();
         }
 
+        private void ProjectClicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync($"//ProjectPage");
+        }
 
+        private void SearchClicked(object sender, EventArgs e)
+        {
+            (BindingContext as MainPageViewModel)?.HandleSearchClick();
+        }
     }
 
 }

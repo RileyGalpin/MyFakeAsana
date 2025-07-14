@@ -73,7 +73,8 @@
                                             <RowDefinition/>
                                         </Grid.RowDefinitions>
                                         <Label TextColor="Red" Grid.Row="0" Text="Due Date"/>
-                                        <Label Grid.Row="1" Text="{Binding Model.DueDate}"/> 
+                                        
+                                        <Label  Grid.Row="1"  Text="{Binding Model.DueDate, StringFormat='{0:MM/dd/yyyy}'}" />
                                     </Grid>        
                                     
                                     <Button Grid.Column="4" Text="Delete" Clicked= "InLineDeleteClicked" Command = "{Binding DeleteCommand}"/>
