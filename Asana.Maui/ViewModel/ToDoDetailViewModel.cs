@@ -6,52 +6,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
-
-namespace Asana.Maui.ViewModel
+namespace Asana.Maui.ViewModels
 {
     public class ToDoDetailViewModel
     {
-         private ProjectServiceProxy _projectSvc;
-        public ToDoDetailViewModel()
-        {
+        public ToDoDetailViewModel() {
             Model = new ToDo();
-            _projectSvc = ProjectServiceProxy.Current;
+
             DeleteCommand = new Command(DoDelete);
         }
 
         public ToDoDetailViewModel(int id)
         {
             Model = ToDoServiceProxy.Current.GetById(id) ?? new ToDo();
-             _projectSvc = ProjectServiceProxy.Current;
+
             DeleteCommand = new Command(DoDelete);
         }
 
         public ToDoDetailViewModel(ToDo? model)
         {
             Model = model ?? new ToDo();
-             _projectSvc = ProjectServiceProxy.Current;
             DeleteCommand = new Command(DoDelete);
         }
 
-        public void DoDelete()
-        {
-            foreach (var project in _projectSvc.Projects)
-            {
-                if (project.ToDos != null && project.ToDos.Contains(Model))
-                {
-                    project.ToDos.Remove(Model);
-                }
-            }
-            ToDoServiceProxy.Current.DeleteToDo(Model);
+        public void DoDelete() {
 
-            
+            ToDoServiceProxy.Current.DeleteToDo(Model?.Id ?? 0);
         }
 
-        public ToDo? Model { get; set; }
+        public ToDo? Model { get ; set; }
         public ICommand? DeleteCommand { get; set; }
 
         public List<int> Priorities
@@ -62,8 +46,7 @@ namespace Asana.Maui.ViewModel
             }
         }
 
-        public int SelectedPriority
-        {
+        public int SelectedPriority { 
             get
             {
                 return Model?.Priority ?? 4;
@@ -79,10 +62,6 @@ namespace Asana.Maui.ViewModel
 
         public void AddOrUpdateToDo()
         {
-            if (SelectedProject != null)
-            {
-                _projectSvc.GetById(SelectedProjectId).AddOrUpdate(Model);
-            }
             ToDoServiceProxy.Current.AddOrUpdate(Model);
         }
 
@@ -91,7 +70,7 @@ namespace Asana.Maui.ViewModel
         {
             set
             {
-                if (Model == null)
+                if(Model == null)
                 {
                     return;
                 }
@@ -111,40 +90,6 @@ namespace Asana.Maui.ViewModel
                 return Model?.Priority?.ToString() ?? string.Empty;
             }
         }
-
-private ObservableCollection<Project> _projects;
-public ObservableCollection<Project> Projects
-{
-    get
-    {
-        if (_projects == null)
-        {
-            var projects = _projectSvc.Projects ?? new List<Project>();
-            _projects = new ObservableCollection<Project>(projects);
-        }
-                foreach (var project in _projects)
-                {
-                    if (project.Id == -1)
-                    {
-                        _projects.Remove(project);
-                        break; 
-                    }
-        }
-        return _projects;
-    }
-    set
-    {
-        _projects = value;
-        //RefreshProjectPage();
-    }
-}
-
-
-
-        // public double CompletedPercent()
-
-        public Project SelectedProject { get; set; }
-        public int SelectedProjectId => SelectedProject?.Id ?? -1;
 
 
     }
